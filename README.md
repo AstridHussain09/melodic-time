@@ -39,3 +39,10 @@ The package exports:
 - `measure_at`
 - `measure_position_at`
 - `ticks_at`
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
